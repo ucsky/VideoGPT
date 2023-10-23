@@ -20,6 +20,17 @@ docker-run-i:
 	-it \
 	--rm \
 	--gpus all \
+	-v $(PWD):/home/worker/work \
 	videogpt:dev 'bash' \
 	)
 
+docker-download-data: ## Run docker container interactively
+docker-download-data:
+	-(\
+	docker run \
+	-it \
+	--rm \
+	--gpus all \
+	-v $(PWD):/home/worker/work \
+	videogpt:dev entrypoints/download.bash \
+	)
