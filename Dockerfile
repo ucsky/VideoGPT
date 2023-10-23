@@ -18,7 +18,7 @@ RUN useradd \
 
 # Switch to worker.
 USER worker
-WORKDIR /home/worker
+WORKDIR /home/worker/work
 COPY --chown=worker:worker ./notebooks ./notebooks
 COPY --chown=worker:worker ./README.md ./README.md
 COPY --chown=worker:worker ./requirements.txt ./requirements.txt
