@@ -3,12 +3,6 @@ SHELL := /bin/bash -i
 help: 
 	@grep -E '(^[0-9a-zA-Z_-]+:.*?##.*$$)' Makefile | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}'
 
-
-
-data-download: ## Download data.
-data-download:
-	sh scripts/preprocess/bair/create_bair_dataset.sh datasets/bair
-
 docker-build: ## Build docker images.
 docker-build: Dockerfile
 	-( \
