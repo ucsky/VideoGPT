@@ -1,9 +1,5 @@
-FROM pytorch/pytorch:1.7.0-cuda11.0-cudnn8-devel
-
-RUN apt --allow-insecure-repositories update -y
-RUN apt-get install --allow-unauthenticated wget -y
-RUN apt-get install emacs -y
-RUN apt-get install git -y
+FROM tensorflow/tensorflow:1.15.5-gpu
+#RUN apt-get install emacs -y
 
 # Create worker user.
 ARG UID_WORKER=1000
@@ -33,13 +29,16 @@ RUN echo "export PATH=$PATH:/home/worker/.local/bin" >> ~/.bashrc
 RUN which pip
 RUN which python
 RUN python --version
-RUN conda env list
 
 # Install python packages.
 RUN pip install -U pip
-RUN pip install git+https://github.com/wilson1yan/VideoGPT.git
-
-
-
-
+RUN pip install tqdm
+RUN pip install requests
+RUN pip install h5py
+RUN pip install Pillow
+# RUN pip install av
+# RUN pip install gradio
+# RUN pip install moviepy
+RUN pip install imageio
+# RUN pip install gdown
 
