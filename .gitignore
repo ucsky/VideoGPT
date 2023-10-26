@@ -6,3 +6,4 @@ datasets/
 *.mp4
 *.egg-info
 i3d_pretrained_400.pt
+/.virtual_documents/
