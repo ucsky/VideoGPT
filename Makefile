@@ -27,6 +27,14 @@ conda-clean-gpu:
 	&& conda env remove --name VideoGptGpu \
 	)
 
+conda-startlab-gpu: ## Startlab Python environement with conda for GPU.
+conda-startlab-gpu:
+	-(\
+	test -f ~/activate/miniconda3 && . ~/activate/miniconda3 || true \
+	&& conda activate VideoGptGpu \
+	&& jupyter lab --no-browser \
+	)
+
 
 docker-build: ## Build docker images.
 docker-build: Dockerfile
